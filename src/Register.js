@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useHistory, BrowserRouter as Router } from "react-router-dom";
 import {MDBBtn,MDBContainer,MDBRow,MDBCol,MDBCard,MDBCardBody,MDBInput } from 'mdb-react-ui-kit';
 
@@ -17,22 +16,19 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://ec2-54-153-33-88.us-west-1.compute.amazonaws.com:8081/api/subscribers/getSubcribers", {
-        msisdn,
-        password,
-        email,
-        name,
-        packageId,
-        securityQuestion,
-        surname,
-
-
+      const response = await fetch("http://ec2-54-153-33-88.us-west-1.compute.amazonaws.com:8081/api/subscribers/getSubcribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ msisdn, password ,email,name,packageId,securityQuestion,surname}),
       });
-      console.log(response.data);
+      const data = await response.json();
+      console.log(data);
       history.push("/");
     } catch (error) {
-      console.log(error.response.data);
-      setError(error.response.data);
+      console.log(error);
+      setError(error);
     }
   };
 
