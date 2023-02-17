@@ -21,7 +21,7 @@ function App() {
     e.preventDefault()
 
     
-    fetch(`http://ec2-54-153-33-88.us-west-1.compute.amazonaws.com:8081//api/auth/login?MSISDN=${MSISDN}&password=${password}`,{
+    fetch(`http://ec2-54-153-33-88.us-west-1.compute.amazonaws.com:8081/api/auth/login?MSISDN=${MSISDN}&password=${password}`,{
       //mode:'no-cors',
       method: 'GET',
       /*headers: {
