@@ -10,6 +10,7 @@ import Register from "./Register";
 
 
 
+
 function App() {
   
  
@@ -75,7 +76,7 @@ function App() {
             <p className="mb-0">Don't have an account? </p>
             
             
-            <button outline className='mx-2' color='danger'  >
+            <MDBBtn outline className='mx-2' color='danger'>
               Register
               
               
@@ -83,7 +84,7 @@ function App() {
               
             
               
-            </button>
+            </MDBBtn>
             
             
             
@@ -213,9 +214,10 @@ More than 13 million users currently provide services. The next target is to rea
         </a>
       </div>
     </MDBFooter>
+    <Register/>
 
   </MDBContainer>
-  <Register/>
+  
   </Router>
   
 	
